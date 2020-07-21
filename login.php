@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     #CONEXION A LA BD
     try {
-        $conexion = new PDO('mysql:host=localhost;dbname=login', 'root', '');
+        $conexion = new PDO('mysql:host=localhost:3306;dbname=pruebass_Bd_prueba', 'pruebass_admin', 'GV%7B,Xt(oxs');
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

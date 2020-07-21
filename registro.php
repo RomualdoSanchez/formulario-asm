@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errores .= "<li> Por favor llena todos los datos </li>";
     } else {
         try {
-            $conexion = new PDO('mysql:host=199.168.184.50;dbname=pruebass_Bd_prueba', 'pruebass_admin', 'GV%7B,Xt(oxs');
+            $conexion = new PDO('mysql:host=localhost:3306;dbname=pruebass_Bd_prueba', 'pruebass_admin', 'GV%7B,Xt(oxs');
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
