@@ -1,0 +1,49 @@
+//EJEMPLO PARA EJECUTAR ARCHIVO PHP(Base de Datos) Y OBTENER RESULTADOS Y PODER ACTUALIZAR EL CONTENIDO MOSTRADO AL USUARIO SIN RECARGAR TODA LA PÁGINA
+
+$(document).ready(function() 
+{
+ 
+	$('body').on('click','#panelSesion .button',function (e)
+	{
+		e.preventDefault();
+		eventoSesion = $(this).attr('id');
+
+		if(eventoSesion == 'accederGSI')
+		{
+			var str = $('#formSesion').serialize();
+			$.ajax(
+			{
+        beforeSend: function()
+        {
+        },
+        cache: false,
+        type: "POST",
+        dataType: "json",
+        url:"includes/archivo.php",
+        data:str + "&var1=" + value1 + "&id=" + Math.random(),
+        success: function(response)
+        {
+        	if(response.procesado == false)
+		    	{
+		    		alert(response.mensaje);
+		    	}
+		    	else
+		    	{
+		    		dato1= response.varJson1;
+		    		dato2= response.varJson2;
+		    		dato3= response.varJson3;
+
+		    		nombreFuncion(parametro1, parametro2, parametro3);
+		    		
+		    	}
+		    	
+        },
+        error:function()
+        {
+          alert('Error al Iniciar Sesión, intente nuevamente');
+        }
+  		});
+	    return false;
+		}
+	});
+});
